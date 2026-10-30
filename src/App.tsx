@@ -1,5 +1,6 @@
 import { useState } from "react";
 import type { Allat } from "./Models/Types/Allat.type";
+import { AllatLista } from "./Components/AllatLista/AllatLista";
 
 export const App = function () {
   const [allatok, setAllatok] = useState<Allat[]>([
@@ -47,10 +48,9 @@ export const App = function () {
     });
   };
 
-  allatHozzaadasa("Bloki", 12)
   return (
     <>
-      <p>{allatok[2].nev}</p>
+      <AllatLista allatok={allatok} allatTorlese={allatTorlese} eletkorNovelese={eletkorNovelese}></AllatLista>
     </>
   )
 };
