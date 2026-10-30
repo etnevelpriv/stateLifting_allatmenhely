@@ -1,6 +1,7 @@
 import { useState } from "react";
 import type { Allat } from "./Models/Types/Allat.type";
 import { AllatLista } from "./Components/AllatLista/AllatLista";
+import { AllatVezerlo } from "./Components/AllatVezerlo/AllatVezerlo";
 
 export const App = function () {
   const [allatok, setAllatok] = useState<Allat[]>([
@@ -21,7 +22,7 @@ export const App = function () {
     }
   ]);
 
-  const allatHozzaadasa = function (nev: string, kor: number) {
+  const allatHozzaadasa = function (nev: string="Bloki", kor: number=6) {
     setAllatok((elozoAllatok) => {
       const allat: Allat = {
         id: (elozoAllatok.at(-1)?.id ?? -1) + 1,
@@ -51,6 +52,7 @@ export const App = function () {
   return (
     <>
       <AllatLista allatok={allatok} allatTorlese={allatTorlese} eletkorNovelese={eletkorNovelese}></AllatLista>
+      <AllatVezerlo allatHozzaadasa={allatHozzaadasa}></AllatVezerlo>
     </>
   )
 };
