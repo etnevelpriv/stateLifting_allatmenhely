@@ -31,6 +31,22 @@ export const App = function () {
     });
   };
 
+  const eletkorNovelese = function (id: number) {
+    setAllatok((elozoAllatok) =>
+      elozoAllatok.map((allat) =>
+        allat.id === id
+          ? { ...allat, kor: allat.kor + 1 }
+          : allat
+      )
+    );
+  };
+
+  const allatTorlese = function (id:number) {
+    setAllatok((elozoAllatok)=>{
+      return elozoAllatok.filter((allat) => allat.id != id)
+    });
+  };
+
   allatHozzaadasa("Bloki", 12)
   return (
     <>
